@@ -1,27 +1,27 @@
 # Site settings
-title: 笨方法学写作
+title: 余朝歌
 header-img: "img/Xacebook.jpg"
 tagline: "cn"  
-description: "陈素封|笨方法学写作"  
+description: "余朝歌"  
 baseurl: ""
-url: "http://www.cnfeat.com"  
+url: "http://yuzhaoge.com"  
 
 # About/contact
 owner: 
-  name: " CNFeat"
-  email: CNFeat@gmail.com
-  bio: "笨方法学写作"
+  name: " yuzhaoge"
+  email: yuchaoafei@aliyun.com
+  bio: "yuzhaoge"
 
 # Data
 gavatar: http://openmindclub.qiniudn.com/omt/favicon.png
 favicon: img/favicon.ico
 
-douban_username:  cnfeat
-twitter_username: feat
-github_username: cnfeat
-facebook_username: 
-weibo_username: cnfeat 
-zhihu_username: feat
+douban_username:  yuzhaoge
+twitter_username: yuzhaoge
+github_username: yuzhaoge
+facebook_username: yuzhaoge
+weibo_username: yuzhaoge 
+zhihu_username: yuzhaoge
 
 # Build settings  
 # use Github Flavored Markdown !important  
