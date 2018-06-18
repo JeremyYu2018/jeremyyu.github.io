@@ -42,16 +42,16 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "CNFeat"
+      author: "yuzhaoge"
       header-img: "img/green.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
 comments :
   provider : disqus
   duoshuo :
-    short_name : cnfeat
+    short_name : yuzhaoge
   disqus :
-      short_name : cnfeat
+      short_name : yuzhaoge
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-80884545-1
