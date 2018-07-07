@@ -11,13 +11,15 @@ description:
  ![](https://i.imgur.com/zMRNsyt.png)   
     
  xtrabackup具有如下特点： 
- >
+>
+    `
      1. Create hot InnoDB backups without pausing your database
      2. Make incremental backups of MySQL
      3. Stream compressed MySQL backups to another server
      4. Move tables between MySQL servers on-line
      5. Create new MySQL replication slaves easily
      6. Backup MySQL without adding load to the server
+    `
  
 尽管拥有众多的卓越的特性。但是我们日常备份的场景大多是全备。如果是增量备份通常备份的是binlog，xtrabackup备份工具在早期的时候主要是两个工具：innobackupex和xtrabackup,但是在如今最新的2.4中已经innobackupex已经变成一个指向xtrabackup的软链接。另外官方推荐使用xtrabackup命令行，如今保留innobackupex的目的只是为了兼容性
 ![](https://i.imgur.com/pnV8yDl.png)
