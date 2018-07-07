@@ -7,19 +7,22 @@ tags: [percona,xtrabackup,备份与恢复]
 description: 
 ---
 
- 这几周一直在研究备份与恢复的工具，重点关注在percona公司的xtrabackup热备工具，不得不说percona公司真是一家伟大的公司，提供众多非常好用的工具。pmm,percona-server,percona-xtrabackup,percona-xtrabackup等，每一样都是得到了业界的认可，被广泛应用于生产环境中，而今天说的percona-xtrabackup是众多优秀的之一，备份还原利器。
+ 这几周一直在研究备份与恢复的工具，重点关注在percona公司的xtrabackup热备工具，不得不说percona公司真是一家伟大的公司，提供众多非常好用的工具。pmm,percona-server,percona-xtrabackup,percona-toolkits等，每一样都是得到了业界的认可，被广泛应用于生产环境中，而今天说的percona-xtrabackup是众多优秀的之一，备份还原利器。
  ![](https://i.imgur.com/zMRNsyt.png)   
     
  xtrabackup具有如下特点： 
+
 >
-    `
-     1. Create hot InnoDB backups without pausing your database
+     
+	 1. Create hot InnoDB backups without pausing your database
      2. Make incremental backups of MySQL
      3. Stream compressed MySQL backups to another server
      4. Move tables between MySQL servers on-line
      5. Create new MySQL replication slaves easily
      6. Backup MySQL without adding load to the server
-    `
+>
+   
+    
  
 尽管拥有众多的卓越的特性。但是我们日常备份的场景大多是全备。如果是增量备份通常备份的是binlog，xtrabackup备份工具在早期的时候主要是两个工具：innobackupex和xtrabackup,但是在如今最新的2.4中已经innobackupex已经变成一个指向xtrabackup的软链接。另外官方推荐使用xtrabackup命令行，如今保留innobackupex的目的只是为了兼容性
 ![](https://i.imgur.com/pnV8yDl.png)
@@ -28,27 +31,37 @@ description:
     
 1. innobackupex方式
 
-    `innobackupex --no-timestamps /data/backup/192.168.1.1_3306_full_20180627`
+	`innobackupex --no-timestamps /data/backup/192.168.1.1_3306_full_20180627`
+
 指定--no-times目的是使用自己的创建目录作为备份的数据存储的目录，默认是创建一个当前时间的目录。个人习惯备份目录的全名命名为`ip`+`port`+`full`+`20180629`
 
 2. xtrabackup方式
 
-    `xtrabackup --backup --target-dir=/data/backup/192.168.1.1_3306_full_20180627`
+	`xtrabackup --backup --target-dir=/data/backup/192.168.1.1_3306_full_20180627`
 
 ## 还原 ##
 还原包括两个步骤：Prepare和copy-back,Prepare过程非常类似于mysqld crash之后做一次mysql recover,原理就是重新应用变化期间生成redo 日志。
 
 1. 应用日志（Prepare阶段）
-- innobackup方式
+
+innobackupex方式
+
 	`innobackupex --apply-log /data/backup/192.168.1.1_3306_full_20180627`
-- xtrabackup方式
-    `xtrabackup --prepare --target-dir=/data/backup/192.168.1.1_3306_full_20180627`
+
+xtrabackup方式
+
+  	`xtrabackup --prepare --target-dir=/data/backup/192.168.1.1_3306_full_20180627`
 
 2. copy-back
+
 innobackupex方式
+
 	`innobackup --copy-backup /data/backup/192.168.1.1_3306_full_20180627`
+
 xtrabackup方式
+
     `xtrabackup --copy-back --target-dir=/data/backups/192.168.1.1_3306_full_20180627`
+
 注：更参数参考官方文档
 甚至可以简单地使用OS命令cp所有数据到datadir。
  `cp -a /data/backup/192.168.1.1_3306_full_20180627 /data/mysql3306/data`
