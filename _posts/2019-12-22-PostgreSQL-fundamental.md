@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PostgreSQL基础知识总结
+title: PostgreSQL体系结构总结
 date: 2019-12-22
 categories: blog
 tags: [PostgreSQL]
