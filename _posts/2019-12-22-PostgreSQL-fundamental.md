@@ -9,9 +9,9 @@ description:
 
  最近学习了炼数成金黄晓涛老师的pg课[《PostgreSQL初识与提高（第四期)》](http://www.dataguru.cn/mycourse.php?lessonid=2130)，现在总结一下相关知识，以下大部分内容整理来自该课的课件，少量内容经过自己修改加工过。
  
- #### PostgreSQL的体系结构。
+ ### PostgreSQL的体系结构
  
-![PostgreSQL体系结构](2019-12-22-PostgreSQL-fundamental/PostgreSQL-Arch.png)
+![PostgreSQL体系结构](![PostgreSQL体系结构](https://s2.ax1x.com/2019/12/23/lpTcXF.png)
 
 ### postmaster进程
 postmaster是守护进程，实际上是第一个postgres进程,在pg10中，postmaster实际上是一个指向postgres的软连接
@@ -57,7 +57,7 @@ postgres 14420 13817  0 14:40 pts/1    00:00:00 grep --color=auto postgres
 4. 负责返回命令执行结果给客户端
 5. 在客户端断开连接是释放进程
 
-![PostgreSQL client postgres](2019-12-22-PostgreSQL-fundamental/client_postgres.png)
+![PostgreSQL client postgres](https://s2.ax1x.com/2019/12/23/lpTR0J.png)
 
 ### 本地内存
 本地内存是服务器进程独占的内存结构，每个postgres子进程都会分配一小块相应内存空间，随着连接会话的增加而增加，这部分内存单独属于每一个连接，它不属于实例的一部分。
@@ -124,7 +124,7 @@ postgres 14420 13817  0 14:40 pts/1    00:00:00 grep --color=auto postgres
  - PostgreSQL在磁盘上的一整套文件集合叫做database cluster
  - 数据库包含了数据文件、日志文件等多种文件，用于存储用户数据和保证数据一致性。
 
- ![PostgreSQL database cluster](2019-12-22-PostgreSQL-fundamental/pg-database-cluster.png)
+ ![PostgreSQL database cluster](https://s2.ax1x.com/2019/12/23/lpT2m4.png)
 
 
 ### PostgreSQL目录结构
