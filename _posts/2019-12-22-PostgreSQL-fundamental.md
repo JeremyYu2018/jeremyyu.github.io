@@ -8,9 +8,10 @@ description:
 ---
 
  最近学习了炼数成金黄晓涛老师的pg课[《PostgreSQL初识与提高（第四期)》](http://www.dataguru.cn/mycourse.php?lessonid=2130)，现在总结一下相关知识，以下大部分内容整理来自该课的课件，少量内容经过自己修改加工过。
- 
- ### PostgreSQL的体系结构
- 
+
+
+### PostgreSQL的体系结构
+
 ![PostgreSQL体系结构](https://s2.ax1x.com/2019/12/23/lpTcXF.png)
 
 ### postmaster进程
