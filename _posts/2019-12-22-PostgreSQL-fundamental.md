@@ -11,7 +11,7 @@ description:
  
  ### PostgreSQL的体系结构
  
-![PostgreSQL体系结构](![PostgreSQL体系结构](https://s2.ax1x.com/2019/12/23/lpTcXF.png)
+![PostgreSQL体系结构](https://s2.ax1x.com/2019/12/23/lpTcXF.png)
 
 ### postmaster进程
 postmaster是守护进程，实际上是第一个postgres进程,在pg10中，postmaster实际上是一个指向postgres的软连接
