@@ -121,7 +121,7 @@ postgres 14420 13817  0 14:40 pts/1    00:00:00 grep --color=auto postgres
 7. stats collector process
     - 统计信息的收集进程。收集表和索引的空间信息和元祖信息等，甚至表的访问信息，收集到的信息可以个优化器、autovacuum使用。
 
- ### 数据库
+### 数据库
  - PostgreSQL在磁盘上的一整套文件集合叫做database cluster
  - 数据库包含了数据文件、日志文件等多种文件，用于存储用户数据和保证数据一致性。
 
