@@ -260,6 +260,7 @@ postgres=# select name,context,setting,unit from pg_settings where name in ('blo
  segment_size | internal | 131072  | 8kB
 (2 rows)
 ```
+
 如下为对应表：
 | ./configure参数 |  pg内部参数  |  备注|
 | -----| -----| ------| 
