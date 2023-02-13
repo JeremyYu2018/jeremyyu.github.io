@@ -4,24 +4,24 @@ header-img: "img/Xacebook.jpg"
 tagline: "cn"  
 description: "余朝歌"  
 baseurl: ""
-url: "http://yuzhaoge.com"  
+url: "http://jeremyyu.github.io"  
 
 # About/contact
 owner: 
-  name: " yuzhaoge"
-  email: yuchaoafei@aliyun.com
-  bio: "yuzhaoge"
+  name: " jeremyu"
+  email: jeremyu.yu2018@outlook.com
+  bio: "jeremyu"
 
 # Data
 gavatar: h
 favicon: img/favicon.ico
 
-douban_username:  yuzhaoge
-twitter_username: yuzhaoge
-github_username: yuzhaoge
-facebook_username: yuzhaoge
-weibo_username: yuzhaoge 
-zhihu_username: yuzhaoge
+douban_username:  jeremyu
+twitter_username: jeremyu
+github_username: jeremyu
+facebook_username: jeremyu
+weibo_username: jeremyu 
+zhihu_username: jeremyu
 
 # Build settings  
 # use Github Flavored Markdown !important  
@@ -42,16 +42,16 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "yuzhaoge"
+      author: "jeremyu"
       header-img: "img/green.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
 comments :
   provider : disqus
   duoshuo :
-    short_name : yuzhaoge
+    short_name : jeremyu
   disqus :
-      short_name : yuzhaoge
+      short_name : jeremyu
 
 # Analytics and webmaster tools stuff goes here
 google_analytics: UA-80884545-1
