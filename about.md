@@ -8,7 +8,7 @@ header-img: "img/green.jpg"
 余朝歌 DBA一枚
 
 
-邮箱：yuchaofei@aliyun.com
+邮箱：jeremy.yu2018@outlook.com
 
 
 
