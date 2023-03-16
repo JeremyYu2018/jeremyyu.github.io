@@ -16,11 +16,5 @@ description:
 优化原则一：避免在OLTP数据库中跑OLAP语句
 案例：
 研发给了一签到图和一张签到表
+
 [Imgur](https://i.imgur.com/JG09J07.jpg)
-
-
-
-git config --global user.name "JeremyYu2018"
-git config --global user.email "jeremy.yu2018@outlook.com"
-
-
