@@ -17,7 +17,7 @@ description:
 ### 优化原则一：避免在OLTP数据库中跑OLAP语句
 
 案例：
-    研发给了一签到模型图还有一张表结构
+    研发提过来一张签到样例图和一张表结构
 <center ><img src="https://i.imgur.com/PAusIWh.png"  style="zoom: 40%;" /> </center>
 
 ```bash
@@ -30,6 +30,7 @@ PRIMARY KEY (`id`)
 )
 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT '签到记录数据';
 ```
+
 希望能实现如下功能点：
 1. 用户通过点击"上月"“下月”点击翻页可以实现查看历史签到的日期。
 2. 最上方可以看到历史总签到天数，不需要判断连续签到。
@@ -48,6 +49,7 @@ select count(*) from user_signin_records where user_id=1000;
 对应解决办法：
 1. 给（USER_ID,SIGN_TIME）加上联合索引，因为“翻月”查询的时候的查询条件是（USER_ID，SIGN_TIME)这时候能尽可能用上联合索引。
 2. 将表转为分区表,按月做range分区，通过自动化工具来控制表自动增删分区，并且从业务侧上限制用户只能查询最近半年的的签到记录，实际情况下用户大部分情况下不可能查询三个月之前的签到记录。
+
 ```bash
 select user_id,
 	     sign_time 
@@ -63,20 +65,20 @@ alter table user_info add sign_days int not null default 0 comment '用户总签
 ```
 
 - 业务逻辑实现SQL
+
 ```SQL
 BEGIN;
-
 INSERT INTO user_signin_records(USER_ID, sign_time)
 VALUES(1000, now());
-
 UPDATE user_info
 SET sign_days = sign_days +1
 WHERE user_id=1000;
-
 COMMIT;
 ```
+
 因此，最终的表结构如下：
 > 由于使用了分区表，需要严格限制每一个SQL都必须带上分区建（sign_time）
+
 ```bash
 CREATE TABLE `user_signin_records` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT '自增id',
@@ -112,6 +114,7 @@ CREATE TABLE `user_signin_records` (
   KEY `IDX_USER_ID` (`user_id`, `log_date`)
 )
 ```
+
 > 改进版本表结构通过类似行转列的方式将能大大减少单表记录数。
 
 在应用开发中，数据库很容易成为系统的瓶颈，站在整体的角度上来看，数据库不方便扩展，但是应用却容易扩展，因此多多关注容易成为性能瓶颈的点是有必要的，通过合理设计表结构能提前避免掉很多麻烦，使得系统在面对高并发时更从容一些。
