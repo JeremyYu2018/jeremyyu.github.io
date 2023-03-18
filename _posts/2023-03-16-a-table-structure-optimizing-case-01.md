@@ -37,7 +37,7 @@ DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT '签到记录数据';
 
 研发想法：第二点只需要一天一条记录，每天INSERT一天记录即可。第二个功能点：用如下SQL就能解决。
 
-```sql
+```bash
 select count(*) from user_signin_records where user_id=1000;
 ```
 
@@ -60,13 +60,13 @@ select user_id,
 ```
 3. 在别的用户主表（比如USER_INFO）增加字段来额外记录用户总签到天数，并且"签到（INSERT）"和“增加签到记录数（UPDATE）"应该看做一个事务，保证签到操作的原子性。
 
-```SQL
+```bash
 alter table user_info add sign_days int not null default 0 comment '用户总签到天数';
 ```
 
 - 业务逻辑实现SQL
 
-```SQL
+```bash
 BEGIN;
 INSERT INTO user_signin_records(USER_ID, sign_time)
 VALUES(1000, now());
@@ -99,7 +99,7 @@ CREATE TABLE `user_signin_records` (
 2. log_date每天签到时刷新，每月轮换时重新插入新一个月的记录
 3. buffxxx里面0表示未签到，1表示签到。
 
-```SQL
+```bash
 CREATE TABLE `user_signin_records` (
   `id` int NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `user_id` bigint NOT NULL DEFAULT '0' COMMENT '账号id',
