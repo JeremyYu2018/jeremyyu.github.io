@@ -18,7 +18,7 @@ description:
 
 案例：
     研发提过来一张签到样例图和一张表结构
-<center ><img src="https://i.imgur.com/PAusIWh.png"  style="zoom: 40%;" /> </center>
+<center ><img src="https://raw.githubusercontent.com/JeremyYu2018/jeremyyu2018.github.io/master/_posts/img/PAusIWh%20-%20signs.png"  style="zoom: 40%;" /> </center>
 
 ```bash
 CREATE TABLE user_signin_records
